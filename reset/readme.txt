@@ -1,0 +1,1 @@
+This is hotw to setup my projects. Other changes
