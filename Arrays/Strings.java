@@ -30,11 +30,28 @@ class Strings {
 		// 	System.out.println("No");
 		// }
 		
-		if (hasAnA("aaaa")) {
+		// if (hasAnA("aaaa")) {
+		// 	System.out.println("Yes");
+		// } else {
+		// 	System.out.println("No");
+		// }
+		
+		if (abecedarian("fawka")) {
 			System.out.println("Yes");
 		} else {
 			System.out.println("No");
 		}
+
+	}
+
+	public static boolean abecedarian(String s) {
+		for (int i= 0; i < s.length(); i++) {
+			if ((s.charAt(i) - s.charAt(i+1)) < 0) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	public static boolean hasAnA(String s) {
