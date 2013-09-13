@@ -35,6 +35,7 @@ class Strings {
 		// } else {
 		// 	System.out.println("No");
 		// }
+		// ji
 		
 		if (abecedarian("fawka")) {
 			System.out.println("Yes");
@@ -46,7 +47,7 @@ class Strings {
 
 	public static boolean abecedarian(String s) {
 		for (int i= 0; i < s.length(); i++) {
-			if ((s.charAt(i) - s.charAt(i+1)) < 0) {
+			if (s.charAt(i) > s.charAt(i+1)) {
 				return true;
 			}
 		}
