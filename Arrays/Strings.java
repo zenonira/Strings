@@ -24,10 +24,10 @@ class Strings {
 		// }
 
 		//System.out.println(count("people", "e"));
-		// if (Palindrome("ssss")) {
-		// 	System.out.println("Yes");
+		// if (Palindrome("sssy")) {
+		//  	System.out.println("Yes");
 		// } else {
-		// 	System.out.println("No");
+		//  	System.out.println("No");
 		// }
 		
 		// if (hasAnA("aaaa")) {
@@ -37,22 +37,63 @@ class Strings {
 		// }
 		// ji
 		
-		if (abecedarian("fawka")) {
-			System.out.println("Yes");
-		} else {
-			System.out.println("No");
-		}
+		// if (abecedarian("dabdz")) {
+		//  	System.out.println("Yes");
+		// } else {
+		//  	System.out.println("No");
+		// }
+
+		// if (isDupledrome("llaammaa")) {
+		// 	System.out.println("Yes");
+		// } else {
+		// 	System.out.println("No");
+		// }
+		System.out.println(decoder("xYajruwl"));
 
 	}
 
+	public static String decoder(String s) {
+		String code = "";
+		for (int i = 0; i < s.length(); i++) {
+			if (s.charAt(i) > 96 && s.charAt(i) < 123) {
+				if (s.charAt(i) < 110) {
+					code = code + (char)(s.charAt(i) + 13);
+				}
+				if (s.charAt(i) >= 110) {
+					code = code + (char)(s.charAt(i) - 13);
+				}
+			}
+			if (s.charAt(i) > 64 && s.charAt(i) < 91) {
+				if (s.charAt(i) < 78) {
+					code = code + (char)(s.charAt(i) + 13);
+				}
+				if (s.charAt(i) >= 78) {
+					code = code + (char)(s.charAt(i) - 13);
+				}
+			}
+		}
+		return code;
+	}
+
+	public static boolean isDupledrome(String s) {
+		for (int i = s.length() - 1; i >= 0; i = i - 2) {
+			if (i == 0) {
+				return false;
+			}
+			if (s.charAt(i) != (s.charAt(i-1))) {
+				return false;
+			}
+		}
+		return true;
+	}
 	public static boolean abecedarian(String s) {
-		for (int i= 0; i < s.length(); i++) {
-			if (s.charAt(i) > s.charAt(i+1)) {
-				return true;
+		for (int i=s.length() - 1; i > 0; i--) {
+			if (s.charAt(i - 1) > s.charAt(i)) {
+				return false;
 			}
 		}
 
-		return false;
+		return true;
 	}
 
 	public static boolean hasAnA(String s) {
@@ -74,15 +115,17 @@ class Strings {
 		return total;
 	}
 
-	// public static boolean Palindrome(String s) {
-	// 	for (int i=0; i<s.length(); i++) {
-	// 		if (s.charAt(i).equals(s.charAt(s.length()-i))) {
-	// 			return true;
-	// 		} else {
-	// 				return false;
-	// 			}
-	// 		}	
-	// 	}
+	public static boolean Palindrome(String s) {
+	 	String reverse = "";
+	 	for (int i = s.length() - 1; i>=0; i--) {
+	 		reverse=reverse + s.charAt(i);
+	 	}
+	 	if (reverse.equals(s)) {
+	 		return true;
+	 	}
+	 	return false;
+
+	}
 
 		
 
