@@ -17,37 +17,37 @@ class Strings {
 		// 	System.out.println(str.substring(i, i+2));
 		// }
 
-		// if (contains("baseball", "ball")) {
-		// 	System.out.println("Yes");
-		// } else {
-		// 	System.out.println("No");
-		// }
+		if (contains("baseball", "ball")) {
+			System.out.println("Yes");
+		} else {
+			System.out.println("No");
+		}
 
-		//System.out.println(count("people", "e"));
-		// if (Palindrome("sssy")) {
-		//  	System.out.println("Yes");
-		// } else {
-		//  	System.out.println("No");
-		// }
+		System.out.println(count("people", "e"));
+		if (Palindrome("sssy")) {
+		 	System.out.println("Yes");
+		} else {
+		 	System.out.println("No");
+		}
 		
-		// if (hasAnA("aaaa")) {
-		// 	System.out.println("Yes");
-		// } else {
-		// 	System.out.println("No");
-		// }
-		// ji
+		if (hasAnA("aaaa")) {
+			System.out.println("Yes");
+		} else {
+			System.out.println("No");
+		}
 		
-		// if (abecedarian("dabdz")) {
-		//  	System.out.println("Yes");
-		// } else {
-		//  	System.out.println("No");
-		// }
+		
+		if (abecedarian("dabdz")) {
+		 	System.out.println("Yes");
+		} else {
+		 	System.out.println("No");
+		}
 
-		// if (isDupledrome("llaammaa")) {
-		// 	System.out.println("Yes");
-		// } else {
-		// 	System.out.println("No");
-		// }
+		if (isDupledrome("llaammaa")) {
+			System.out.println("Yes");
+		} else {
+			System.out.println("No");
+		}
 		System.out.println(decoder("xYajruwl"));
 
 	}
