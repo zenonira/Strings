@@ -1,10 +1,10 @@
 public class Card {
-	private String name;
+	private String suit;
 	private int value;
 
 
-	public Card(String name, int value) {
-		this.name = name;
+	public Card(String suit, int value) {
+		this.suit = suit;
 		this.value = value;
 	}
 }
