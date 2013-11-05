@@ -7,4 +7,8 @@ public class Card {
 		this.suit = suit;
 		this.value = value;
 	}
+
+	public void print() {
+		System.out.println(suit + " " + value);
+	}
 }
