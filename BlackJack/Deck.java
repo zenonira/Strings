@@ -1,46 +1,35 @@
 import java.util.Random;
 public class Deck {
-
 	Card[] cards = new Card[52];
-	int timesDrawn = 0;
 
-	public Deck() {
-		for (int x=1; x<=13; x++) {
-			int i = x;
-			if (x>10) {
-				i = 10;
-			}
-			Card hearts = new Card("Heart", i);
-			cards[x-1] = hearts;
-			
-			Card diamond = new Card("Diamond", i);
-			cards[x+12] = diamond;
-			
-			Card spades = new Card("Spades", i);
-			cards[x+25] = spades;
-			
-			Card clubs = new Card("Clubs", i);
-			cards[x+38] = clubs;
-			
-		}
- 	
-		shuffle();
+    public Deck() {
+        for (int x=1; x<=13; x++) {
+            Card newCard = new Card("heart", x);
+            cards[x-1] = newCard;
+            Card diamond = new Card("Diamond", x);
+            cards[x+12] = diamond;
+            Card spades = new Card("Spades", x);
+            cards[x+25] = spades;
+            Card clubs = new Card("Clubs", x);
+            cards[x+38] = clubs;
+        }
+        shuffle();
+    }
 
-	}
+    public void shuffle() {
+    	Random random = new Random();
+        for (int i = cards.length - 1; i > 0; i--) {
+            Card a = cards[i];
+            int temp = random.nextInt(i);
+            cards[i] = cards[temp];
+            cards[temp] = a;
+        }
+    }
 
-	public void drawCard() {
-		timesDrawn++;
-	}
-
-	public void shuffle() {
-		for (int i=52; i>=1; i--) {
-			Random random = new Random(52);
-			int b = random.nextInt(i);
-			Card a = cards[i];
-			cards[a] = cards[b];
-			cards[b] = a;
-
-		}
-	}
+    public void print() {
+        for (int i = 0; i < 52; i++) {
+            cards[i].print();
+        }
+    }
 
 }

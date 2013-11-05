@@ -6,6 +6,9 @@ public class Card {
 	public Card(String suit, int value) {
 		this.suit = suit;
 		this.value = value;
-		System.out.println(suit + value);
+	}
+
+	public void print() {
+	    System.out.println(suit + " " + value);
 	}
 }
