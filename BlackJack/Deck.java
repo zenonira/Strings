@@ -3,14 +3,20 @@ public class Deck {
 	Card[] cards = new Card[52];
 
     public Deck() {
+    	int i = 0;
         for (int x=1; x<=13; x++) {
-            Card newCard = new Card("heart", x);
+        	if (x > 10) {
+        		i = 10;
+        	} else {
+        		i = x;
+        	}
+            Card newCard = new Card("Hearts", i, x);
             cards[x-1] = newCard;
-            Card diamond = new Card("Diamond", x);
+            Card diamond = new Card("Diamonds", i, x);
             cards[x+12] = diamond;
-            Card spades = new Card("Spades", x);
+            Card spades = new Card("Spades", i, x);
             cards[x+25] = spades;
-            Card clubs = new Card("Clubs", x);
+            Card clubs = new Card("Clubs", i, x);
             cards[x+38] = clubs;
         }
         shuffle();
