@@ -3,14 +3,27 @@ import java.applet.*;
 
 public class TableApplet extends Applet {
 
-	private Card poster;
+	private Deck picture;
 
 	public void init() {
-		poster = new Card("Hearts", 1, 1);
+		picture = new Deck();
+
+		// for (int i=0; i<53; i++) {
+		// 	int n = 0;
+		// 	for (int x=0; x< 11; x++) {
+		// 		if (x > 10) {
+		// 			n = 10;
+		// 		} else {
+		// 			n = x;
+		// 		}
+		// 		poster = new Card("Hearts", n, x);
+		// 	}
+		// }
+		
 	}
 
 	public void paint(Graphics g) {
-		poster.draw(g, new Rectangle(50, 50, 200, 300));
+		picture.draw(g);
 	}
 
 }

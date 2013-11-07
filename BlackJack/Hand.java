@@ -4,9 +4,7 @@ public class Hand {
 	private Deck cards;
 
 	public Hand() {
-		for (int i=0; i< 11; i++) {
-			
-		}
+		
 	}
 
 }

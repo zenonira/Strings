@@ -1,4 +1,12 @@
 import java.util.Random;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Rectangle;
+
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 public class Deck {
 	Card[] cards = new Card[52];
 
@@ -10,16 +18,16 @@ public class Deck {
         	} else {
         		i = x;
         	}
-            Card newCard = new Card("Hearts", i, x);
+            Card newCard = new Card("Hearts", i, number(x));
             cards[x-1] = newCard;
-            Card diamond = new Card("Diamonds", i, x);
+            Card diamond = new Card("Diamonds", i, number(x));
             cards[x+12] = diamond;
-            Card spades = new Card("Spades", i, x);
+            Card spades = new Card("Spades", i, number(x));
             cards[x+25] = spades;
-            Card clubs = new Card("Clubs", i, x);
+            Card clubs = new Card("Clubs", i, number(x));
             cards[x+38] = clubs;
         }
-        shuffle();
+        //shuffle();
     }
 
     public void shuffle() {
@@ -35,6 +43,28 @@ public class Deck {
     public void print() {
         for (int i = 0; i < 52; i++) {
             cards[i].print();
+        }
+    }
+
+    public String number(int x) {
+        if (x == 1) {
+            return "A";
+        } else if (x >= 2 && x <= 10){
+            return "" + x;
+        } else if (x == 11) {
+            return "J";
+        } else if (x == 12) {
+            return "Q";
+        } else {
+            return "K";
+        }
+    }
+
+    public void draw(Graphics g) {
+        int xOffset = 50;
+        for (int i=0; i<cards.length; i++) {
+            cards[i].draw(g,new Rectangle(xOffset, 50, 200, 300));
+            xOffset += 25;
         }
     }
 
