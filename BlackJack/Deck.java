@@ -60,11 +60,11 @@ public class Deck {
         }
     }
 
-    public void draw(Graphics g) {
+    public void draw(Graphics g, int yOffSet) {
         int xOffset = 50;
         for (int i=0; i<cards.length; i++) {
-            cards[i].draw(g,new Rectangle(xOffset, 50, 200, 300));
-            xOffset += 25;
+            cards[i].draw(g,new Rectangle(xOffset, yOffSet, 100, 150));
+            xOffset += 15;
         }
     }
 

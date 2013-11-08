@@ -23,7 +23,9 @@ public class TableApplet extends Applet {
 	}
 
 	public void paint(Graphics g) {
-		picture.draw(g);
+		picture.draw(g,0);
+		picture.shuffle();
+		picture.draw(g,100);
 	}
 
 }
