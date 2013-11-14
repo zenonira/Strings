@@ -68,4 +68,8 @@ public class Deck {
         }
     }
 
+    public Card getCard(int top) {
+        return this.cards[top];
+    }
+
 }
