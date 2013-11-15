@@ -1,7 +1,13 @@
-public class Player extends Hand {
+public class Player {
 	
+	private Hand playerHand;
+
 	public Player() {
-		private Hand hand;
+		this.playerHand = new Hand();
+	}
+
+	public void addCard() {
+		this.playerHand.thehHand[i] = 
 	}
 
 	
