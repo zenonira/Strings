@@ -9,6 +9,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 public class Deck {
 	Card[] cards = new Card[52];
+    private int i = -1;
 
     public Deck() {
     	int i = 0;
@@ -68,8 +69,10 @@ public class Deck {
         }
     }
 
-    public Card getCard(int top) {
-        return this.cards[top];
+    public Card top() {
+        i++;
+        return cards[i];
+        
     }
 
 }
