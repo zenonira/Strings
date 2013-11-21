@@ -12,6 +12,7 @@ public class Card {
 	private int value;
 	private String number;
 	private Image image;
+	private Image back;
 
 
 	public Card(String suit, int value, String number) {
@@ -19,6 +20,7 @@ public class Card {
 		this.value = value;
 		this.number = number;
 		this.image = Card.loadImage(number + suit);
+		this.back = Card.loadImage("back-blue");
 	}
 
 	
@@ -38,12 +40,26 @@ public class Card {
 		return image;
 	}
 
+
+
 	public void draw(Graphics g, Rectangle r) {
 	    g.drawImage(image, r.x, r.y, r.width, r.height, null);
 	}
 
+	public void drawBack(Graphics g, Rectangle r) {
+		g.drawImage(back, r.x, r.y, r.width, r.height, null);
+	}
+
 	public int getValue() {
 		return this.value;
+	}
+
+	public int getValue2() {
+		if (this.value == 1) {
+			return 11;
+		} else {
+			return this.value;
+		}
 	}
 
 	public void print() {
