@@ -9,7 +9,7 @@ public class TableApplet extends Applet implements ActionListener{
 	Human human = new Human();
 	Dealer dealer = new Dealer();
 	private JLabel label;
-	private JButton hit, stay, newGame;
+	private JButton hit, stay, newGame, bet;
 	private String answer;
 	private int humanWallet = 1000;
 	// private int dealerWallet = 99999999;
@@ -57,6 +57,7 @@ public class TableApplet extends Applet implements ActionListener{
 		if ("Bet $10".equals(ae.getActionCommand())) {
 			humanWallet -= 10;
 			pot += 20;
+			repaint();
 		}
 		if ("Hit".equals(ae.getActionCommand())) {
 			if (human.getTotal() <= 21) {
@@ -120,7 +121,7 @@ public class TableApplet extends Applet implements ActionListener{
 		dealer.draw(g);
 		g.drawString("" + human.getTotal(), 25, 25);
 		g.drawString("" + dealer.getTotal(), 25, 50);
-		g.drawString("" + answer, 100, 400);
+		g.drawString("" + answer, 600, 300);
 	}
 
 }
