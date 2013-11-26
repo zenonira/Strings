@@ -13,7 +13,7 @@ public class Dealer extends Player {
 	public void draw(Graphics g) {
 		int xOffset = 50;
 		for (int i=0; i<numbCards; i++) {
-			if (i == 0) {
+			if (i < numbFaceDownCards) {
 				theHand[i].drawBack(g, new Rectangle(xOffset, 355, 150, 300));
 			} else {
 				theHand[i].draw(g, new Rectangle(xOffset, 355, 150, 300));

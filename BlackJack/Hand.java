@@ -2,6 +2,8 @@ public class Hand {
 	
 	protected Card[] theHand;
 	protected int numbCards = 0;
+	public int numbFaceDownCards = 0;
+
 
 	public Hand() {
 		this.theHand = new Card[11];
@@ -26,7 +28,8 @@ public class Hand {
 		}
 		return sum;
 	}
-	
+
+
 
 
 	

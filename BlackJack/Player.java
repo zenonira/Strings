@@ -6,9 +6,6 @@ public class Player extends Hand{
 		super();
 	}
 
-	public void hit(Dealer dealer) {
-		
-	}
 	
 	
 }
