@@ -14,9 +14,9 @@ public class Dealer extends Player {
 		int xOffset = 50;
 		for (int i=0; i<numbCards; i++) {
 			if (i < numbFaceDownCards) {
-				theHand[i].drawBack(g, new Rectangle(xOffset, 355, 150, 300));
+				theHand[i].drawBack(g, new Rectangle(xOffset, 400, 150, 300));
 			} else {
-				theHand[i].draw(g, new Rectangle(xOffset, 355, 150, 300));
+				theHand[i].draw(g, new Rectangle(xOffset, 400, 150, 300));
 				
 			}
 			xOffset += 50;	

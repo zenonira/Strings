@@ -13,8 +13,12 @@ public class TableApplet extends Applet implements ActionListener{
 	private String answer = "";
 	private int humanWallet = 1000;
 	private int pot = 0;
+	private int win = 0;
+	private int lose = 0;
+	private int tie = 0;
+	private boolean cheat = false;
 
-
+	//makes Label and Buttons
 	public void init() {
 		label = new JLabel("You have $" + humanWallet + " the pot is $" + pot);
 		label.setFont(new Font("Sansserif", Font.BOLD, 32));
@@ -68,7 +72,7 @@ public class TableApplet extends Applet implements ActionListener{
 	
 		
 	}
-
+	//What happens when buttons are pressed
 	public void actionPerformed(ActionEvent ae) {
 		if ("Hit".equals(ae.getActionCommand())) {
 			hit();
@@ -114,7 +118,7 @@ public class TableApplet extends Applet implements ActionListener{
 			label.setText("You have $" + humanWallet + " the pot is $" + pot);
 		}
 	}
-
+	//create each game
 	public void game() {
 		Deck newDeck = new Deck();
 		Human newHuman = new Human();
@@ -123,12 +127,18 @@ public class TableApplet extends Applet implements ActionListener{
 		human = newHuman;
 		dealer = newDealer;
 		myDeck.shuffle();
+		//below is used for back of the cards
 		human.numbFaceDownCards = 2;
 		dealer.numbFaceDownCards = 2;
 		human.add(myDeck.top());
 		dealer.add(myDeck.top());
 		human.add(myDeck.top());
 		dealer.add(myDeck.top());
+		//If you get below $-1000 you probably need some help
+		//Easter Egg
+		if (humanWallet < -1000) {
+			cheat = true;
+		}
 	}
 
 	public void checkAnswer() {
@@ -137,6 +147,7 @@ public class TableApplet extends Applet implements ActionListener{
 			newGame.setEnabled(true);
 			stay.setEnabled(false);
 			dealer.numbFaceDownCards = 0;
+			lose++;
 
 		} else {
 			answer = "";
@@ -147,9 +158,17 @@ public class TableApplet extends Applet implements ActionListener{
 		super.paint(g);
 		human.draw(g);
 		dealer.draw(g);
-		// g.drawString("" + human.getTotal(), 25, 25);
-		// g.drawString("" + dealer.getTotal(), 25, 50);
+		if (cheat == true) {
+			g.drawString("" + human.getTotal(), 25, 25);
+			g.drawString("" + dealer.getTotal(), 25, 50);
+		}
+		g.drawString("Player", 50, 360);
+		g.drawString("Dealer", 50, 710);
+		g.drawString("" + win + " - " + lose + " - " + tie, 600, 750);
 		g.drawString("" + answer, 600, 300);
+		if (humanWallet < 0) {
+			g.drawString("Warning You Are Negative", 600, 770);
+		}
 	}
 
 	public void hit() {
@@ -173,11 +192,14 @@ public class TableApplet extends Applet implements ActionListener{
 		}
 		if ((human.getTotal() > dealer.getTotal() || dealer.getTotal() > 21) && human.getTotal() < 22) {
 			answer = "You Win";
+			win++;
 			humanWallet += pot;
 		} else if (human.getTotal() < dealer.getTotal() && dealer.getTotal() < 22 || human.getTotal() > 21) {
 			answer = "You Lose";
+			lose++;
 		} else {
 			answer = "It's A Draw";
+			tie++;
 			humanWallet += pot/2;
 		}
 		dealer.numbFaceDownCards = 0;
